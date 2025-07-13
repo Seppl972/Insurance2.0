@@ -1,4 +1,4 @@
-import ui.Frame;
+import ui.*;
 
 public class Main  {
 

@@ -11,17 +11,16 @@ public class Buttons implements ActionListener {
     JButton[] buttonArray = new JButton[6];
     JButton loginButton, searchButton, listButton, addButton, JTableButton, SQLButton;
 
-    //Konstruktor 
+    // Konstruktor 
     public Buttons(JPanel panel) {
 
         createStartButtons(panel);
 
     }
 
-
     public void createStartButtons(JPanel panel) {
 
-        panel.setLayout(new GridLayout(6, 1));
+        panel.setLayout(new GridLayout(7, 1));
         
         panel.setBackground(Color.WHITE);
 

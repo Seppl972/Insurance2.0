@@ -8,7 +8,14 @@ import javax.swing.JTextField;
 
 public class Login {
 
-    public JPanel createLoginPanel() {
+	// Konstruktor
+	public Login(JPanel loginPanel) {
+
+		createLoginPanel(loginPanel);
+
+	}
+
+    public void createLoginPanel(JPanel loginPanel) {
 
         JPanel loginPanel = new JPanel();
 		loginPanel.setBounds(750, 300, 400, 300);
@@ -30,8 +37,6 @@ public class Login {
 		loginPanel.add(pw);
 
 		loginPanel.setVisible(true);
-
-		return loginPanel;
     }
 
 }

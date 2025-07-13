@@ -9,11 +9,15 @@ public final class Frame extends JFrame {
 	// SWING GUI deklarieren
 	public JFrame startFrame;
 	public JPanel startPanel;
+	public JPanel backroundPanel;
+	private Image image; 
 
-	// Konstruktor (Erzeugtes Frame-Objekt startet bestimmte Methoden)
+
+	// Konstruktor (Erzeugt Frame-Objekt mit vorgegeben Methoden)
 	public Frame() {
 
 		createFrame();
+		createBackroundPanel();
 		createStartPanel();
 		createStartButtons();
 
@@ -24,7 +28,7 @@ public final class Frame extends JFrame {
 	public void createFrame() {
 
 		// GUI Rahmen erstellen - 1920x1080		
-		this.setTitle("Insurance CRM");
+		this.setTitle("Insurance2.0");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(1920, 1080);
 		this.setLocationRelativeTo(null);
@@ -34,12 +38,20 @@ public final class Frame extends JFrame {
 
 	}		
 	
+	public void createBackroundPanel() {
+
+		BackroundPanel backround = new BackroundPanel("/ui/HintergrundbildMedizin.jpg");
+    	backround.setBounds(0, 0, getWidth(), getHeight()); // am besten ganze Fenstergröße
+    	backround.setLayout(null);
+    	setContentPane(backround);
+	}
+
 	public void createStartPanel() {
 
 		startPanel = new JPanel();
 		startPanel.setBounds(750, 300, 400, 300);
 		startPanel.setLayout(new FlowLayout());
-		startPanel.setBackground(Color.BLUE);
+		startPanel.setBackground(Color.GREEN);
 		this.add(startPanel);
 
 	}

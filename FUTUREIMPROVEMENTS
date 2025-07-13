@@ -1,7 +1,7 @@
 # Future Improvements Ideas
 
 - Implement a GUI using JavaFX or Swing
-
+- better structure of different classes & packages
 - Add file storage or database integration
     > stored the data in the array users first
     > in the future the data should be safed in a sql-database (JDBC)
