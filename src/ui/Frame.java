@@ -65,4 +65,12 @@ public final class Frame extends JFrame {
 
 	}
 
+	public void repaintFrame() {
+
+		this.removeAll();
+		this.revalidate();
+		this.repaint();
+	
+	}
+
 } 

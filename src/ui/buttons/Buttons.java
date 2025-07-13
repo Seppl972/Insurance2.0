@@ -1,9 +1,12 @@
 package ui.buttons;
 
+import data.SQLConnection;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.*;
 
 public class Buttons implements ActionListener {
@@ -65,13 +68,28 @@ public class Buttons implements ActionListener {
 
         // JTable Objekt erzeugen über Unterklasse JTable
         if (e.getSource() == JTableButton) {
-            
+            BenutzerDaten Test = new BenutzerDaten();
+
         }
 
-        // SQL Objekt erzeugen über Unterklasse SQL
+        // SQL Objekt erzeugen über Unterklasse SQLConnection
         if (e.getSource() == SQLButton) {
-            
-        }
+            SQLConnection createSQLConnection = new SQLConnection("/home/seppl972/Schreibtisch/Insurance2.0/bin/ui/buttons/SQL_Datenbank.db");
+
+            ResultSet rs = createSQLConnection.executeQuery("SELECT * FROM Tabelle2");
+            System.out.println("rs");
+
+            try {
+                 while (rs != null && rs.next()) {
+                    System.out.println("Spalte1: " + rs.getString("Spalte1"));
+                }
+            } catch (SQLException ex) {
+               ex.printStackTrace();
+            } finally {
+               createSQLConnection.close();
+            }
+
+       }
 
     }
 
