@@ -10,17 +10,15 @@ public final class Frame extends JFrame {
 	public JFrame startFrame;
 	public JPanel startPanel;
 	public JPanel backroundPanel;
-	private Image image; 
-
 
 	// Konstruktor (Erzeugt Frame-Objekt mit vorgegeben Methoden)
 	public Frame() {
 
+		//Hauptmenü
 		createFrame();
 		createBackroundPanel();
 		createStartPanel();
 		createStartButtons();
-
 		setVisible(true);
 
 	}
@@ -54,6 +52,11 @@ public final class Frame extends JFrame {
 		startPanel.setBackground(Color.GREEN);
 		this.add(startPanel);
 
+	}
+
+	public void createUserLogin() {
+
+		Login userLogin = new Login();
 	}
 
 	public void createStartButtons() {
