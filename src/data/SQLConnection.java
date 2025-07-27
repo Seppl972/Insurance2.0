@@ -1,47 +1,31 @@
 package data;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 public class SQLConnection {
 
-    // WICHTIG: conn als Instanzvariable definieren
-    private Connection conn;
+    public static void main(String[] args) {
+        // SQLite darabase URL (create new database if doesn´t exist)
+        String url = "/home/seppl972/Schreibtisch/Insurance2.0/src/data/sample.db"; // replace with your database file path
 
-    // Konstruktor
-    public SQLConnection(String dbPath) {
-        try {
-            String url = "jdbc:sqlite:" + dbPath;
-            conn = DriverManager.getConnection(url);  // conn hier zuweisen!
-            System.out.println("Verbindung zur DB hergestellt: " + url);
-        } catch (SQLException e) {
-            System.out.println("Fehler bei Verbindung: " + e.getMessage());
+        // SQL statement to create a table
+        String createTableSQL = "CREATE TABLE IF NOT EXISTS user (" +
+                                "id INTEGER PRIMARY KEY AUTOINCREMENT;" +
+                                "name TEXT NOT NULL," +
+                                "email TEXT NOT NULL" +
+                                ");";
+
+        try (Connection conn = DriverManager.getConnection(url);
+                Statement stmt = conn.createStatement()) {
+            
+                stmt.execute(createTableSQL);
+                System.err.println("Database connection established, table created.");
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
         }
+            
     }
 
-    // Methode, um eine Abfrage auszuführen
-    public ResultSet executeQuery(String query) {
-        try {
-            Statement stmt = conn.createStatement();  // conn hier verwenden
-            System.out.println("Führe Query aus: " + query);
-            return stmt.executeQuery(query);
-        } catch (SQLException e) {
-            System.out.println("Fehler bei Query: " + e.getMessage());
-            return null;
-        }
-    }
-
-    // Verbindung schließen
-    public void close() {
-        try {
-            if (conn != null && !conn.isClosed()) {
-                conn.close();
-                System.out.println("Verbindung geschlossen.");
-            }
-        } catch (SQLException e) {
-            System.out.println("Fehler beim Schließen: " + e.getMessage());
-        }
-    }
 }
