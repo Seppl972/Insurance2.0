@@ -4,11 +4,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class SQLConnection {
+public class SQLTest {
 
     public static void main(String[] args) {
-        // SQLite database URL -> need to import the .csv data in DBeaver everytime?
-        String url = "jdbc:sqlite:/home/seppl972/Schreibtisch/Insurance2.0/bin/ui/buttons/SQL_Datenbank";
+        // SQLite example database URL -> works constantly, isn´t saved localy? 
+        String url = "jdbc:sqlite:/home/seppl972/.local/share/DBeaverData/workspace6/.metadata/sample-database-sqlite-1/Chinook.db";
 
         // Optional: name of the table you want to print
         String tableName = "Customer";
@@ -24,12 +24,12 @@ public class SQLConnection {
 
             System.out.println("📋 Data from table '" + tableName + "':");
             while (rs.next()) {
-                int id = rs.getInt("id");                     // adjust columns if different
-                String name = rs.getString("name");
-                int age = rs.getInt("age");
-                String place = rs.getString("place");
-                
-                System.out.println("[ID: " + id + ", Name: " + name + ", age: " + age + ", place: " + place + "]");
+                int id = rs.getInt("CustomerId");                     // adjust columns if different
+                String firstname = rs.getString("FirstName");
+                String lastname = rs.getString("LastName");
+                String adress = rs.getString("Address");
+
+                System.out.println("ID: " + id + ", Name: " + firstname + ", " + lastname + ", Place: " + adress);
             }
 
         } catch (Exception e) {

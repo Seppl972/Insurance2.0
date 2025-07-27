@@ -5,20 +5,20 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class AddCustomor {
+public class AddCustomer {	
     
-    public AddCustomor() {
+    public AddCustomer() {
 
-        createNewCustomor();
+        createNewCustomer();	// funktioniert gerade nicht
 
     }
 
-    public void createNewCustomor() {
+    public void createNewCustomer() {
 
-        JPanel createCustomor = new JPanel();
+        JPanel createCustomer = new JPanel();
 
 		//Gleiches Fenster, desshalb kein "JFrame frame = new JFrame();""
-		JLabel Frage = new JLabel("Create new Customor");
+		JLabel Frage = new JLabel("Create new Customer");
 			
 		//Buttons, JLabels, JTextFields
 		JLabel enterName = new JLabel("Enter full name:");
@@ -32,7 +32,7 @@ public class AddCustomor {
 		//Enter & Back
 		JButton enterButton = new JButton("enter");
 		JButton backButton = new JButton("back");
-		createCustomor.add(backButton);
+		createCustomer.add(backButton);
 
 
 		enterButton.addActionListener(l -> {
