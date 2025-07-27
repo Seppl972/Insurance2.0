@@ -1,31 +1,38 @@
 package data;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class SQLConnection {
 
     public static void main(String[] args) {
-        // SQLite darabase URL (create new database if doesn´t exist)
-        String url = "/home/seppl972/Schreibtisch/Insurance2.0/src/data/sample.db"; // replace with your database file path
+        // ✅ SQLite database URL (copied from DBeaver)
+        String url = "jdbc:sqlite:/home/seppl972/Schreibtisch/Insurance2.0/bin/ui/buttons/SQL_Datenbank";
 
-        // SQL statement to create a table
-        String createTableSQL = "CREATE TABLE IF NOT EXISTS user (" +
-                                "id INTEGER PRIMARY KEY AUTOINCREMENT;" +
-                                "name TEXT NOT NULL," +
-                                "email TEXT NOT NULL" +
-                                ");";
+        // Optional: name of the table you want to print
+        String tableName = "Customor";
 
         try (Connection conn = DriverManager.getConnection(url);
-                Statement stmt = conn.createStatement()) {
-            
-                stmt.execute(createTableSQL);
-                System.err.println("Database connection established, table created.");
+             Statement stmt = conn.createStatement()) {
+
+            System.out.println("✅ Database connection established.");
+
+            // Run SELECT query and print results
+            String selectSQL = "SELECT * FROM " + tableName + ";";
+            ResultSet rs = stmt.executeQuery(selectSQL);
+
+            System.out.println("📋 Data from table '" + tableName + "':");
+            while (rs.next()) {
+                int id = rs.getInt("id");                     // adjust columns if different
+                String name = rs.getString("name");
+                int age = rs.getInt("age");
+                String place = rs.getString("place");
+                System.out.println("[ID: " + id + ", Name: " + name + ", age: " + age + ", place: " + place + "]");
+            }
 
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("❌ Error: " + e.getMessage());
         }
-            
     }
-
 }
