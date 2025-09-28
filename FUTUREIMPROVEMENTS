@@ -1,10 +1,11 @@
 # Future Improvements Ideas
 
-- Implement a GUI using JavaFX or Swing
+- Implement a GUI using Java Swing
 - better structure of different classes & packages
 - Add file storage or database integration
     > stored the data in the array users first
     > in the future the data should be safed in a sql-database (JDBC)
+    > export the data in a .csv file should be possible
 
 - Introduce authentication and role-based access
 
