@@ -1,49 +1,42 @@
 package ui.buttons;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 
-public class AddCustomer {	
+public class AddCustomer extends JPanel { // Wir machen die Klasse selbst zu einem JPanel
     
     public AddCustomer() {
+        // Layout setzen, damit die Elemente untereinander stehen
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        createNewCustomer();	// funktioniert gerade nicht
-
+        createNewCustomer();
     }
 
     public void createNewCustomer() {
+        // Wir fügen die Komponenten direkt "this" (dem Panel selbst) hinzu
+        JLabel frage = new JLabel("Create new Customer");
+        add(frage);
+            
+        JLabel enterName = new JLabel("Enter full name:");
+        JTextField name = new JTextField(20); // Größe angeben
+        add(enterName);
+        add(name);
 
-        JPanel createCustomer = new JPanel();
+        JLabel enterAge = new JLabel("Enter age:");
+        JTextField age = new JTextField(5);
+        add(enterAge);
+        add(age);
 
-		//Gleiches Fenster, desshalb kein "JFrame frame = new JFrame();""
-		JLabel Frage = new JLabel("Create new Customer");
-			
-		//Buttons, JLabels, JTextFields
-		JLabel enterName = new JLabel("Enter full name:");
-		JLabel enterAge = new JLabel("Enter age:");
-		JLabel enterPlace = new JLabel("Enter place");
+        JButton enterButton = new JButton("Enter");
+        JButton backButton = new JButton("Back");
+        
+        add(enterButton);
+        add(backButton);
 
-		JTextField name = new JTextField();
-        JTextField Age = new JTextField();
-		JTextField Place = new JTextField();
-
-		//Enter & Back
-		JButton enterButton = new JButton("enter");
-		JButton backButton = new JButton("back");
-		createCustomer.add(backButton);
-
-
-		enterButton.addActionListener(l -> {
-			int cusCounter = 0;
-			cusCounter++;
-			Frage.setText(name.getText() +" was created succesfully");
-		});
-		backButton.addActionListener(l -> {
-			// showStartGUI();
-		});
-
+        // Logik für den Button
+        enterButton.addActionListener(l -> {
+            if (!name.getText().isEmpty()) {
+                frage.setText(name.getText() + " was created successfully");
+            }
+        });
     }
-
 }

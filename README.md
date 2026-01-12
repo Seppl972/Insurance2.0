@@ -8,13 +8,14 @@ Welcome to my first coding project for solving real world problems! This Java-ba
 - Apply Java advanced skills in a project for faster learning progress
 - Learning to create an advanced Java GUI application 
 - Learning to setup an Connection with a SQL database with JDBC
+- Learning data import and .csv export
 
 ## 🛠️ Features
 
 - Login Window
 - Manage customer profiles
 - Advanced java.swing GUI interface
-- Connection with JDBC to a SQL-Database
+- Connection with JDBC to a SQL-Database // in progress
 
 ## 📚 Technologies Used
 
@@ -26,7 +27,7 @@ Welcome to my first coding project for solving real world problems! This Java-ba
 ## 💡 Learned Concepts in Practice
 
 - Object-oriented programming (OOP)
-- Advanced GUI skills with Java.swing (e.g.,)
+- Advanced GUI skills with Java.swing
    > done
 - Implementing JTable for creating structured user data
    > done
